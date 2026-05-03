@@ -70,6 +70,17 @@
         "asynctools"
       ],
       "srcDir": ""
+    },
+    {
+      "method": "fetchzip",
+      "path": "/nix/store/pf2vnqlkmn7mnww976ms93ibv8qkqh5c-source",
+      "rev": "29450a2063970712422e1ab857695c12d80112a6",
+      "sha256": "11dna09ccdhj3pzpqa04j7a95ibx907z6n1ff33yf0n92qa4x59z",
+      "url": "https://github.com/nim-lang/db_connector/archive/29450a2063970712422e1ab857695c12d80112a6.tar.gz",
+      "packages": [
+        "db_connector"
+      ],
+      "srcDir": "src"
     }
   ]
 }

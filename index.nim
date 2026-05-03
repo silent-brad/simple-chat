@@ -1,4 +1,5 @@
 import std/[strutils, asyncdispatch, sets, hashes, json]
+import db_connector/db_sqlite
 import karax/[karaxdsl, vdom], jester, ws, ws/jester_extra
 
 converter to_string(x: VNode): string = $x
@@ -7,6 +8,14 @@ type User = object
   socket: WebSocket
 proc hash(x: User): Hash = hash(x.name)
 var chatrooms = init_table[string, HashSet[User]]()
+let db = open("chat.db", "", "", "")
+db.exec(sql"CREATE TABLE IF NOT EXISTS messages (room TEXT, name TEXT, message TEXT)")
+proc load_history(room: string): VNode =
+  build_html(tdiv(id="content", hx-swap-oob="beforeend")):
+    for row in db.fast_rows(sql"SELECT name, message FROM messages WHERE room = ?", room):
+      tdiv:
+        bold: text row[0]
+        text ": " & row[1]
 template index*(rest: untyped): untyped =
   build_html(html(lang = "en")):
     head:
@@ -28,6 +37,11 @@ routes:
   get "/":
     let html = index:
       h1: text "Join a room!"
+      section:
+        h2: text "Current rooms"
+        ul:
+          for row in db.fast_rows(sql"SELECT DISTINCT room FROM messages"):
+            li: a(href = "/chat?room=" & row[0] & "&name="): text row[0]
       form(action="/chat", `method`="get"):
         label:
           text "Room"
@@ -49,12 +63,14 @@ routes:
     var user = User(name: @"name", socket: ws)
     try:
       chatrooms.mget_or_put(@"room", init_hash_set[User]()).incl(user)
+      discard user.socket.send(load_history(@"room"))
       let joined = build_message:
         italic: text user.name
         italic: text " has joined the room"
       chatrooms[@"room"].send_all(joined)
       while user.socket.ready_state == Open:
         let sent_message = (await user.socket.receive_str_packet()).parse_json["message"]
+        db.exec(sql"INSERT INTO messages VALUES (?, ?, ?)", @"room", user.name, sent_message.get_str())
         discard user.socket.send(chat_input())
         let reply = build_message:
           bold: text user.name

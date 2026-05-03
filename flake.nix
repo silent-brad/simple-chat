@@ -17,6 +17,7 @@
           version = "0.1.0";
           src = ./.;
           lockFile = ./lock.json;
+          buildInputs = [ pkgs.sqlite ];
           nimFlags = [
             "-d:release"
             "-d:useStdLib"
