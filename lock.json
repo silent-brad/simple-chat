@@ -1,0 +1,75 @@
+{
+  "depends": [
+    {
+      "method": "fetchzip",
+      "path": "/nix/store/7wwwlplx2r1pra2yci8ld4kg6s4ckyhm-source",
+      "rev": "a1eaaa87af756c21db4524c38cad4a004218f740",
+      "sha256": "1xy3cq1z93x8hpf8c5xarg53vhhscgs4d7aq5x2j3c7hnlcr7kak",
+      "url": "https://github.com/karaxnim/karax/archive/a1eaaa87af756c21db4524c38cad4a004218f740.tar.gz",
+      "ref": "1.5.0",
+      "packages": [
+        "karax"
+      ],
+      "srcDir": ""
+    },
+    {
+      "method": "fetchzip",
+      "path": "/nix/store/4dxbw27sjzks7j13gdbprhskmdjylscg-source",
+      "rev": "2dfac077170c62cd6ffc73e3dcfa29d29c641dcf",
+      "sha256": "0d35mbx1bgjfmrv8j1qph56law74wzjp3qvr2d0qj9x9d1cddz0p",
+      "url": "https://github.com/dom96/jester/archive/2dfac077170c62cd6ffc73e3dcfa29d29c641dcf.tar.gz",
+      "ref": "v0.6.0",
+      "packages": [
+        "jester"
+      ],
+      "srcDir": ""
+    },
+    {
+      "method": "fetchzip",
+      "path": "/nix/store/zd51j4dphs6h1hyhdbzdv840c8813ai8-source",
+      "rev": "9536bf99ddf5948db221ccb7bb3663aa238a8e21",
+      "sha256": "0j8z9jlvzb1h60v7rryvh2wx6vg99lra6i62whf3fknc53l641fz",
+      "url": "https://github.com/treeform/ws/archive/9536bf99ddf5948db221ccb7bb3663aa238a8e21.tar.gz",
+      "ref": "0.5.0",
+      "packages": [
+        "ws"
+      ],
+      "srcDir": "src"
+    },
+    {
+      "method": "fetchzip",
+      "path": "/nix/store/jkf2p6sp0506crd1awpq2x98m527v4mb-source",
+      "rev": "19bb965ef04f57128f4f4ea2e690ff9f7d6a81b1",
+      "sha256": "0dk0ixgpxmaz2kf12a3fvzdaknn38qnwgdhp7yag0m5fbhhz2kjc",
+      "url": "https://github.com/euantorano/dotenv.nim/archive/19bb965ef04f57128f4f4ea2e690ff9f7d6a81b1.tar.gz",
+      "ref": "2.0.2",
+      "packages": [
+        "dotenv"
+      ],
+      "srcDir": "src"
+    },
+    {
+      "method": "fetchzip",
+      "path": "/nix/store/hx85br48sjcridmda4l35cx7c9imxabg-source",
+      "rev": "abc13d11c210b614960fe8760e581d44cfb2e3e9",
+      "sha256": "1x12ypfj341gjg3rh7zjq1wns8rngfyky6gqgb92lyhlvs7h4xzj",
+      "url": "https://github.com/dom96/httpbeast/archive/abc13d11c210b614960fe8760e581d44cfb2e3e9.tar.gz",
+      "ref": "v0.4.1",
+      "packages": [
+        "httpbeast"
+      ],
+      "srcDir": "src"
+    },
+    {
+      "method": "fetchzip",
+      "path": "/nix/store/qdiiihi53gmbwbj06qa16p8qpks9lvw7-source",
+      "rev": "0e6bdc3ed5bae8c7cc9",
+      "sha256": "111dzyvqlg1r1jngcz3d9px8kfbxpcdi8phs26bxkmbxzjkwrmmv",
+      "url": "https://github.com/cheatfate/asynctools/archive/0e6bdc3ed5bae8c7cc9.tar.gz",
+      "packages": [
+        "asynctools"
+      ],
+      "srcDir": ""
+    }
+  ]
+}
